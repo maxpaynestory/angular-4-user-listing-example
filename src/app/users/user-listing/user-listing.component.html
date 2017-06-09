@@ -1,0 +1,40 @@
+<div class="page-header">
+	<h1>Users</h1>
+</div>
+<div class="row">
+	<div class="col-lg-3">
+    	<div class="input-group stylish-input-group">
+    		<span class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>  
+            </span>
+            <input type="text" class="form-control"  placeholder="Search" (keyup)="searchUsers($event.target.value)" >
+        </div>
+    </div>
+</div>
+<div class="row buffer"></div>
+<div class="row">
+	<div class="table-responsive">
+		<table class="table">
+			<thead>
+	            <tr>
+	              <th><input type="checkbox" (click)="toggleCheckboxes($event.target.checked)"></th>
+	              <th>ID</th>
+	              <th>Name</th>
+	              <th>Sender Name</th>
+	              <th>Email Address</th>
+	              <th>Type</th>
+	            </tr>
+          	</thead>
+          	<tbody>
+          		<tr *ngFor="let user of _users">
+          			<td scope="row"><input type="checkbox" [checked]="checkAll"></td>
+          			<td><a href="/user/{{ user.id }}">#{{ user.id }}</a></td>
+          			<td>{{ user.name }}</td>
+          			<td>{{ user.sender }}</td>
+          			<td>{{ user.email }}</td>
+          			<td>{{ user.type }}</td>
+          		</tr>
+          	</tbody>
+		</table>
+	</div>
+</div>

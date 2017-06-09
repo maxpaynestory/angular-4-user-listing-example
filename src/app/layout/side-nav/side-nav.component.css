@@ -1,0 +1,22 @@
+.navlogo {
+    padding-left: 30px;
+    margin-top: 42px;
+}
+.navHeading {
+        padding-left: 30px;
+        margin-top: 44px;
+}
+.navSubHeading {
+    margin-top: 30px;
+    padding-left: 30px;
+    text-transform: uppercase;
+}
+
+.nav li.active{
+    border-left-style: solid;
+    border-left-width: 5px;
+    border-left-color: DodgerBlue;
+}
+.nav li a{
+    padding-left: 30px;
+}
