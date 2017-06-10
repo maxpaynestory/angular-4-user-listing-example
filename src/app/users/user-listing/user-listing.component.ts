@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import {User} from '../../data'
 import {SearchService} from '../services/search.service';
 
@@ -7,18 +7,19 @@ import {SearchService} from '../services/search.service';
   templateUrl: './user-listing.component.html',
   styleUrls: ['./user-listing.component.css']
 })
-export class UserListingComponent implements OnInit {
+export class UserListingComponent {
 
-    _users: Array<User>;
+    private _users: Array<User>;
     private _searchService: SearchService;
     checkAll: Boolean = false;
 
     constructor() {
-        this._users = this.returnFixtures();
+        this._users = this.returnStaticData();
         this._searchService = new SearchService(this._users);
     }
 
-    ngOnInit() {
+    get users() {
+        return this._users;
     }
 
     searchUsers(searchKeyword) {
@@ -29,7 +30,7 @@ export class UserListingComponent implements OnInit {
         this.checkAll = isChecked;
     }
 
-    private returnFixtures(): Array<User> {
+    private returnStaticData(): Array<User> {
         return [
             new User(
                 '235324',
